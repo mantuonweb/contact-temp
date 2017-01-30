@@ -1,0 +1,138 @@
+<ion-view title="Contact">
+<ion-nav-bar class="bar nav-title-slide-ios7">
+<ion-nav-back-button class="button icon ion-arrow-left-c"></ion-nav-back-button>
+<div class="action">
+  <button menu-toggle="right" class="button icon ion-navicon-round"></button>
+</div>
+</ion-nav-bar>
+<ion-content class="footer-closed">
+<div>
+  <section class="user-account">
+    <!-- <div account-selection></div> -->
+  </section>
+  <div class="signin-page">
+    <div class="list list-inset">
+      <label class="item item-input">
+       <span class="input-label">First Name</span>
+
+        <input type="text" placeholder="">
+      </label>
+      <label class="item item-input">
+      <span class="input-label">Last Name</span>
+
+        <input type="text" placeholder="">
+      </label>
+      <label class="item item-input">
+      <span class="input-label">Email</span>
+
+        <input type="text" placeholder=""></input>
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Work Phone</span>
+        <input type="text" placeholder="" ng-model="workphone" style="width:55%">
+            <div class="item item-radiobox less-left-shifting no-padding-top no-padding-bottom no-border" ng-click="onDefaultClick($event,workphone,defaultWork);">
+                <label class="radiobox">
+                    <input type="radio" ng-model="defaultWork" ng-value="'work'" >
+                </label>
+                &nbsp;
+  
+               <!--  Default -->
+            </div>
+
+        <!-- <ion-toggle class="custom-item with-info-link no-padding-left no-border" ng-model="defaultWork" toggle-class="toggle-calm"></ion-toggle> -->
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Mobile Phone</span>
+        <input type="text" placeholder="" ng-model="mobilephone" style="width:55%">
+        <div class="item item-radiobox less-left-shifting no-padding-top no-padding-bottom no-border" ng-click="onDefaultClick($event,mobilephone,defaultWork);">
+                <label class="radiobox">
+                    <input type="radio" ng-model="defaultWork" ng-value="'mobile'">
+                </label>
+               &nbsp;
+               <!--  Default -->
+        </div>
+        <!-- <ion-toggle class="custom-item with-info-link no-padding-left no-border" ng-model="defaultMobile" toggle-class="toggle-calm"></ion-toggle> -->
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Home Phone</span>
+        <input type="text" placeholder="" ng-model="homephone" style="width:55%">
+        <div class="item item-radiobox less-left-shifting no-padding-top no-padding-bottom no-border" ng-click="onDefaultClick($event,homephone,defaultWork,defaultWork);">
+                <label class="radiobox">
+                    <input type="radio" ng-model="defaultWork" ng-value="'home'">
+                </label>
+                &nbsp;
+               <!--  Default -->
+        </div>
+        <!-- <ion-toggle class="custom-item with-info-link no-padding-left no-border" ng-model="defaultHome" toggle-class="toggle-calm"></ion-toggle> -->
+      </label>
+      <label class="item item-input">
+        <span class="input-label">Fax</span>
+        <input type="text" placeholder="" ng-model="fax"></input>
+      </label>
+    </div>
+  </div>
+
+
+  <ul class="item-accordian less-padding" style="padding:20px !important">
+  <li ng-class="showAccountList ? 'open' : 'close'">
+
+  <ion-item class="item item-icon-left item-icon-right" ng-click="toggleAccount();">Selected Account ({{accountSelected.length}}) <span ng-show="showAccountList" class="ion-plus-circled" data-pack="android" data-tags="plus, include, invite" ng-click="showModalAccount($event);" style="font-size: 21px;padding: 20px 12px;"></span>
+    
+    <i class="icon ion-ios7-arrow-down"></i>
+  </ion-item>
+  
+  <div class="item-content js-item-content" ng-show="isAccountShown()">
+    <ion-list show-delete="true" >
+    <ion-item ng-repeat="item in accountSelected"
+    item="item"
+    >
+    {{ item.value }}
+    <ion-delete-button class="ion-minus-circled"
+    ng-click="removeSelected(item,'Account');">
+    </ion-delete-button>
+    
+    </ion-item>
+    <ion-item  ng-if="accountSelected.length==0"
+    item="item" ng-click="showModalAccount($event);"
+    >
+    No account is selected
+    
+    </ion-item>
+    </ion-list>
+  </div>
+  </li>
+  <li ng-class="showContactTypeList ? 'open' : 'close'">
+
+  <ion-item class="item item-icon-left item-icon-right" ng-click="toggleContact();">Selected Contact Type ({{contactTypeSelected.length}}) <span ng-show="showContactTypeList" class="ion-plus-circled" data-pack="android" data-tags="plus, include, invite" ng-click="showModalContact($event);" style="font-size: 21px;padding: 20px 12px;"></span>
+    
+    <i class="icon ion-ios7-arrow-down"></i>
+  </ion-item>
+  
+  <div class="item-content js-item-content" ng-show="isContactShown()">
+    <ion-list show-delete="true" >
+    <ion-item ng-repeat="item in contactTypeSelected"
+    item="item"
+    >
+    {{ item.value }}
+    <ion-delete-button class="ion-minus-circled"
+    ng-click="removeSelected(item,'Contact Type');">
+    </ion-delete-button>
+    
+    </ion-item>
+    <ion-item  ng-if="contactTypeSelected.length==0"
+    item="item" ng-click="showModalContact($event);"
+    >
+    No contact is selected
+    
+    </ion-item>
+    </ion-list>
+  </div>
+  </li>
+  </ul>
+  
+</div>
+<div class="signin-page">
+<button class="button button-block caps-on no-margin" ng-click="gotoSearch();">Save contact</button>
+</div>
+</ion-content>
+</ion-view>

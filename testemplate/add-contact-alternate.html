@@ -1,0 +1,17 @@
+<li ng-class="shown ? 'open' : 'close'" style="border-bottom: 1px solid #aaa;">
+      <ion-item class="item item-icon-left item-icon-right item-button-right" ng-click="toggle();">
+      <div class="buttons padding-right" ng-show="shown" style="padding-right: 40px;">
+      </div>
+      Contact types ({{selectedlist.length}})
+      <i class="icon ion-ios7-arrow-down"></i>
+      </ion-item>
+      
+      <div class="item-content js-item-content" ng-show="shown">
+         <ion-list>
+          <ion-checkbox ng-model="item.isSelected" ng-repeat="item in list" ng-click="addSelected();">{{ item.value }}</ion-checkbox>
+          <ion-item  ng-if="list.length==0" item="item">
+            No contact types to select.
+          </ion-item>
+        </ion-list>
+      </div>
+</li>

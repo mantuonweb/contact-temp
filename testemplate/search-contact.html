@@ -1,0 +1,71 @@
+
+<ion-view title="Contact Management">
+<ion-nav-bar class="bar nav-title-slide-ios7">
+<ion-nav-back-button class="button icon ion-arrow-left-c"></ion-nav-back-button>
+<div class="action">
+  <button menu-toggle="right" class="button icon ion-navicon-round"></button>
+</div>
+</ion-nav-bar>
+<ion-content class="footer-closed">
+<div>
+  <!-- <section class="user-account">
+    <div account-selection></div>
+  </section> -->
+  <div  >
+    <div class="list" >
+    <label class="item" style="padding: 10px;">
+        * Required field 
+      </label>
+     <label class="item item-input" style="background-color: #DDDDDD;">
+        <input type="text" placeholder="First Name*" >
+      </label>
+      <label class="item item-input" style="background-color: #DDDDDD;">
+       
+        <input type="text" placeholder="Last Name*" >
+      </label>
+      <label class="item item-input" style="background-color: #DDDDDD;">
+        <input type="text" placeholder="Business Phone"></input>
+      </label>
+      <label class="item item-input" style="background-color: #DDDDDD;">
+      
+        <input type="text"  ng-model="phone" placeholder="Fax">  
+      </label>
+      <label class="item item-input" style="background-color: #DDDDDD;">
+       
+        <input type="text"  ng-model="account" placeholder="Alternative Phone">  
+      </label>
+      <label class="item item-input" style="background-color: #DDDDDD;">
+       
+        <input type="text"  ng-model="account" placeholder="Email*">  
+      </label>
+      <div class="row">
+         <div class="col text-right">
+            <button class="button no-margin button-small" ng-click="search()" style="width:100px">Search</button>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+    <ion-scroll direction="y" style="height:200px">
+           <!-- <ul class="item-accordian less-padding" style="padding:0px 22px !important;">
+                <wol-contact-list-item ng-repeat="contact in contacts" item="contact" del="deleteContact(contact);"></wol-contact-list-item>
+            </ul> -->
+            <ul class="item-accordian less-padding" style="padding:0px 22px !important;">
+                <wol-contact-list-item ng-repeat="contact in contacts" item="contact" del="deleteContact(contact);"></wol-contact-list-item>
+            </ul>
+     </ion-scroll>
+  
+  <div class="signin-page">
+  <div class="row no-margin no-padding">
+     <div class="col text-right">
+        <button class="button no-margin button-small" ng-click="gotoAdd($event);" style="width:100px">Add contact</button>
+    </div>
+  </div>
+  <!--  <button class="button button-block caps-on button-small" ng-click="gotoAdd($event);" style="width:50%;float: right;">Add new</button> -->
+   <br>
+  </div>
+ 
+</div>
+</ion-content>
+</ion-view>

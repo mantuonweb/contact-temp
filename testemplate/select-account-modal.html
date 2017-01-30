@@ -1,0 +1,23 @@
+<ion-modal-view class="modal slide-in-up ng-leave ng-leave-active">
+<ion-header-bar>
+<h1 class="title">Select {{modalType}}</h1>
+<div class="button icon ion-close" ng-click="accModal.hide()"></div>
+</ion-header-bar>
+<ion-content padding="false" class="padding">
+<div class="no-chat-tree open">
+    <div class="contents clearfix">
+        <div class="item item-icon-left item-button-left" ng-repeat="item in modalList" ng-class="{'active':item.isSelected}" ng-click="selectItem(item,modalType);">
+          <i class="icon ion-plus-circled button-icon button" ></i>
+         {{ item.value }}
+       </div>
+       <div class="item" ng-if="modalList.length==0">
+           No more item to add
+       </div>
+    </div>
+    <br>
+    <div class="signin-page" ng-if="modalList.length>0">
+        <button class="button button-block caps-on no-margin" ng-click="addSelected(modalType);">Add {{modalType}}</button>
+    </div>
+</div>
+</ion-content>
+</ion-modal-view>

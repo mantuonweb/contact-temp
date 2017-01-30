@@ -1,0 +1,32 @@
+<li ng-class="shown ? 'open' : 'close'">
+      <ion-item class="item item-icon-left item-icon-right item-button-right" ng-click="toggle();">
+      <div class="buttons padding-right" ng-show="shown" style="padding-right: 40px;">
+        <button ng-click="openModal($event);" class="button button-icon linear-icon button-clear no-padding no-border ion-plus-circled" style="font-size: 24px;top:-6px;color:white" ></button>
+      </div>
+      Selected Contact types ({{selectedlist.length}})
+      <i class="icon ion-ios7-arrow-down"></i>
+      </ion-item>
+      
+      <div class="item-content js-item-content" ng-show="shown">
+        <ion-list show-delete="true" >
+        <ion-item ng-repeat="item in selectedlist"
+        item="item"
+        >
+        {{ item.value }}
+        <ion-delete-button class="ion-minus-circled no-padding no-border"
+        ng-click="removeSelected(item,'Account');">
+        </ion-delete-button>
+        
+        </ion-item>
+        <ion-item  ng-if="selectedlist.length==0"
+        item="item" ng-click="openModal($event);"
+        >
+        No contact type is selected
+        
+        </ion-item>
+        </ion-list>
+      </div>
+</li>
+
+
+

@@ -1,0 +1,35 @@
+<ion-view title="Contact">
+<ion-nav-bar class="bar nav-title-slide-ios7">
+<ion-nav-back-button class="button icon ion-arrow-left-c"></ion-nav-back-button>
+<div class="action">
+  <button menu-toggle="right" class="button icon ion-navicon-round"></button>
+</div>
+</ion-nav-bar>
+  <ion-content class="footer-closed">
+    <div>
+     <!--  <section class="user-account">
+        <div account-selection></div>
+      </section> -->
+     <!--  <div class="signin-page">
+        
+      </div> -->
+      <wol-contact-save-form form-data="contactData">
+        </wol-contact-save-form>
+      <!-- <ul class="item-accordian less-padding" style="padding:20px !important">
+        <wol-select-account add="addSelected('Account')" list="accountTotal" selectedlist="accountSelected">
+        </wol-select-account >
+        <wol-select-old-contact-type add="addSelected('Contact type')" list="contactTypeTotal" selectedlist="contactTypeSelected">
+        </wol-select-old-contact-type>
+      </ul> -->
+      <ul class="item-accordian">
+     <!--    <wol-select-account add="addSelected('Account')" list="accountTotal" selectedlist="accountSelected">
+        </wol-select-account > -->
+        <wol-select-old-contact-type add="addSelected('Contact type')" list="contactTypeTotal" selectedlist="contactTypeSelected">
+        </wol-select-old-contact-type>
+      </ul> 
+    </div>
+    <!-- <div class="signin-page">
+      <button class="button button-block caps-on no-margin" ng-click="gotoSearch();">Save contact</button>
+    </div> -->
+  </ion-content>
+</ion-view>

@@ -1,0 +1,23 @@
+<li ng-class="shown ? 'open' : 'close'" >
+  <ion-item class="item item-icon-left item-button-right" ng-click="toggleAccordian(item);" style="padding-left:50px">{{item.name}}
+  <div class="buttons">
+    <button ng-click="gotoAdd($event);" class="button button-icon linear-icon button-clear no-padding no-border ion-edit" style="font-size: 24px;top:-6px;color:#F3B300" ></button>
+    <button ng-click="deleteContact(item,$event);" class="button button-icon linear-icon button-clear no-padding no-border ion-close" style="font-size: 24px;;top:-6px;color:#ef4e3a"></button>
+  </div>
+   <i class="icon" ng-class="shown ? 'ion-minus-circled' : 'ion-plus-circled'"   style="right: initial;" ng-style="shown && {'color':'#ef4e3a'}"></i>
+  </ion-item>
+  <div class="item-content js-item-content" ng-show="shown">
+    <div class="row">
+      <div class="col col-33 key item-text-wrap">Email</div>
+      <div class="col col-67 value item-text-wrap">{{item.email}}</div>
+    </div>
+    <div class="row">
+      <div class="col col-30 key item-text-wrap">Phone</div>
+      <div class="col col-67 value item-text-wrap">{{item.phone}}</div>
+    </div>
+    <div class="row">
+      <div class="col col-30 key item-text-wrap">Contact Roles</div>
+      <div class="col col-67 value item-text-wrap">{{item.role}}</div>
+    </div>
+  </div>
+</li>

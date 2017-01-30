@@ -1,0 +1,46 @@
+<div class="list list-inset">
+  <label class="item item-input">
+    <input type="text" ng-model="contactData.firstname" placeholder="First Name">
+  </label>
+  <label class="item item-input">
+    <input type="text" ng-model="contactData.lastname" placeholder="Last Name">
+  </label>
+  <label class="item item-input">
+    <input type="text" ng-model="contactData.email" placeholder="Email"></input>
+  </label>
+  <label class="item item-input">
+    <i class="icon ion-ios7-telephone placeholder-icon"></i>
+    <input type="text" placeholder="Work Phone" ng-model="contactData.workphone" style="width:55%">
+    
+    <div class="item item-radiobox less-left-shifting no-padding-top no-padding-bottom no-border" ng-click="onDefaultClick($event,contactData.workphone,primary);">
+      <label class="radiobox">
+        <input type="radio" ng-model="primary" ng-value="'work'" >
+      </label>
+      Primary
+    </div>
+   
+  </label>
+  <label class="item item-input">
+    <i class="icon ion-iphone placeholder-icon"></i>
+    <input type="text" placeholder="Mobile Phone" ng-model="contactData.mobilephone" style="width:55%">
+    <div class="item item-radiobox less-left-shifting no-padding-top no-padding-bottom no-border" ng-click="onDefaultClick($event,contactData.mobilephone,primary);">
+      <label class="radiobox">
+        <input type="radio" ng-model="primary" ng-value="'mobile'">
+      </label>
+      Primary
+    </div>
+  </label>
+  <label class="item item-input">
+    <i class="icon ion-home placeholder-icon"></i>
+    <input type="text" placeholder="Home Phone" ng-model="contactData.homephone" style="width:55%">
+    <div class="item item-radiobox less-left-shifting no-padding-top no-padding-bottom no-border" ng-click="onDefaultClick($event,contactData.homephone,primary);">
+      <label class="radiobox">
+        <input type="radio" ng-model="primary" ng-value="'home'">
+      </label>
+      Primary
+    </div>
+  </label>
+  <label class="item item-input">
+    <input type="text" placeholder="Fax" ng-model="contactData.fax"></input>
+  </label>
+</div>
