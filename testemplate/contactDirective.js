@@ -155,7 +155,7 @@ WOLApp.directive('wolContactSaveForm', function() {
         controller: ['$scope', '$state','utils', function($scope, $state,utils) {
             $scope.search=function () {
                 console.log("Hi I am here",$scope.account);
-                utils.showAlert('Alert', 'added button');
+                utils.showAlert('Alert', 'added button tested');
             }
         }]
     }
