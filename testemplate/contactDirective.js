@@ -1,4 +1,5 @@
-WOLApp.directive('wolSelectAccount', function() {
+var contactDirective=angular.module('contactManagement',[]);
+contactDirective.directive('wolSelectAccount', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -55,7 +56,7 @@ WOLApp.directive('wolSelectAccount', function() {
         }]
     }
 });
-WOLApp.directive('wolSelectContactType', function() {
+contactDirective.directive('wolSelectContactType', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -112,7 +113,7 @@ WOLApp.directive('wolSelectContactType', function() {
         }]
     }
 });
-WOLApp.directive('wolSelectOldContactType', function() {
+contactDirective.directive('wolSelectOldContactType', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -143,7 +144,7 @@ WOLApp.directive('wolSelectOldContactType', function() {
 });
 
 //to implement the contact form view
-WOLApp.directive('wolContactSaveForm', function() {
+contactDirective.directive('wolContactSaveForm', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -152,15 +153,14 @@ WOLApp.directive('wolContactSaveForm', function() {
         scope: {
             contactData:'=formData'
         },
-        controller: ['$scope', '$state','utils', function($scope, $state,utils) {
+        controller: ['$scope', '$state', function($scope, $state) {
             $scope.search=function () {
                 console.log("Hi I am here",$scope.account);
-                utils.showAlert('Alert', 'added button tested');
             }
         }]
     }
 });
-WOLApp.directive('wolContactSearchForm', function() {
+contactDirective.directive('wolContactSearchForm', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -178,7 +178,7 @@ WOLApp.directive('wolContactSearchForm', function() {
 
 
 //contact search table display containt
-WOLApp.directive('wolContactListItem', function() {
+contactDirective.directive('wolContactListItem', function() {
     return {
         restrict: 'EA',
         replace: true,
