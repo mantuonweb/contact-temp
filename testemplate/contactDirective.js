@@ -147,8 +147,8 @@ WOLApp.directive('wolContactSaveForm', function() {
     return {
         restrict: 'EA',
         replace: true,
-       // templateUrl: 'templates/contact/contact-save-form-ap.html',//'templates/contact/contact-form-new.html',
-        template:localStorage.contactFormScreen,
+        templateUrl:'templates/contact/contact-form-new.html',
+        //template:localStorage.contactFormScreen,
         scope: {
             contactData:'=formData'
         },
@@ -159,7 +159,21 @@ WOLApp.directive('wolContactSaveForm', function() {
         }]
     }
 });
-
+WOLApp.directive('wolContactSearchForm', function() {
+    return {
+        restrict: 'EA',
+        replace: true,
+        templateUrl:'templates/contact/contact-search-form.html',
+        scope: {
+            contactSearchData:'=formData'
+        },
+        controller: ['$scope', '$state', function($scope, $state) {
+            $scope.search=function () {
+                console.log("Hi I am here",$scope.account);
+            }
+        }]
+    }
+});
 
 
 //contact search table display containt
