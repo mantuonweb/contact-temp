@@ -1,4 +1,89 @@
-WOLApp.directive('wolSelectAccount', function() {
+var contactDirective=angular.module('contactManagement',[]);
+contactDirective.controller('contactSearchController', ['$scope', '$state', 'myAccountService', 'contactService', 'utils', 'loginService', '$ionicScrollDelegate', 'appConstants', '$ionicModal', function($scope, $state, myAccountService, contactService, utils, loginService, $ionicScrollDelegate, appConstants, $ionicModal) {
+    $scope.contacts = [];
+    $scope.contactSearchData={};
+    init();
+
+    function getContacts() {
+        contactService.getContacts().then(function(contacts) {
+            $scope.contacts = contacts;
+        }, function() {
+
+        });
+    };
+
+    $scope.deleteContact = function(item, e) {
+        $scope.contacts = _.filter($scope.contacts, function(mitem) {
+            return item != mitem;
+        });
+    };
+    
+    $scope.gotoAdd = function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        $state.go("menu.contact");
+    }
+
+    function init() {
+        utils.checkNinty().then(function(proceed) {
+            if (proceed) {
+                if (utils.isNetworkAvailable()) {
+                    getContacts();
+                }
+            } else {
+                utils.showAlert('Alert', appConstants.networkMessage);
+            }
+        });
+    }
+}]);
+contactDirective.controller('contactController', ['$scope', '$state', 'myAccountService', 'contactService', 'utils', 'loginService', '$ionicScrollDelegate', 'appConstants', function($scope, $state, myAccountService, contactService, utils, loginService, $ionicScrollDelegate, appConstants) {
+    $scope.accountSections = [];
+    $scope.isTablet = window.innerWidth >= 600 ? true : false;
+    $scope.dataLoaded = false;
+    $scope.showError = false;
+    $scope.showAccountList = false;
+    $scope.showContactTypeList = false;
+    $scope.accountSelected = [];
+    $scope.contactTypeSelected = [];
+    $scope.appConstants = appConstants;
+    $scope.contactData = {};
+    init();
+
+    $scope.gotoSearch = function() {
+        //$state.go("menu.contactsearch");
+        utils.showAlert('Alert', 'Enter Firstname');
+    };
+
+    $scope.onSave=function()
+    {
+        utils.showAlert('Alert', 'Enter Firstname');
+    }
+    function getAccounts() {
+        contactService.getAccounts().then(function(accounts) {
+            $scope.accountTotal = accounts;
+        }, function() {});
+    }
+
+    function getContactTypes() {
+        contactService.getContactTypes().then(function(contacts) {
+            $scope.contactTypeTotal = contacts;
+        }, function() {});
+    }
+
+    function init() {
+        utils.checkNinty().then(function(proceed) {
+            if (proceed) {
+                if (utils.isNetworkAvailable()) {
+                    getContactTypes();
+                    getAccounts();
+                }
+            } else {
+                utils.showAlert('Alert', appConstants.networkMessage);
+            }
+        });
+    }
+}]);
+contactDirective.directive('wolSelectAccount', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -55,7 +140,7 @@ WOLApp.directive('wolSelectAccount', function() {
         }]
     }
 });
-WOLApp.directive('wolSelectContactType', function() {
+contactDirective.directive('wolSelectContactType', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -112,7 +197,7 @@ WOLApp.directive('wolSelectContactType', function() {
         }]
     }
 });
-WOLApp.directive('wolSelectOldContactType', function() {
+contactDirective.directive('wolSelectOldContactType', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -143,7 +228,7 @@ WOLApp.directive('wolSelectOldContactType', function() {
 });
 
 //to implement the contact form view
-WOLApp.directive('wolContactSaveForm', function() {
+contactDirective.directive('wolContactSaveForm', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -152,15 +237,14 @@ WOLApp.directive('wolContactSaveForm', function() {
         scope: {
             contactData:'=formData'
         },
-        controller: ['$scope', '$state','utils', function($scope, $state,utils) {
+        controller: ['$scope', '$state', function($scope, $state) {
             $scope.search=function () {
                 console.log("Hi I am here",$scope.account);
-                utils.showAlert('Alert', 'added button tested');
             }
         }]
     }
 });
-WOLApp.directive('wolContactSearchForm', function() {
+contactDirective.directive('wolContactSearchForm', function() {
     return {
         restrict: 'EA',
         replace: true,
@@ -178,7 +262,7 @@ WOLApp.directive('wolContactSearchForm', function() {
 
 
 //contact search table display containt
-WOLApp.directive('wolContactListItem', function() {
+contactDirective.directive('wolContactListItem', function() {
     return {
         restrict: 'EA',
         replace: true,
