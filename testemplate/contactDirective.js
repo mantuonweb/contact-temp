@@ -3,6 +3,7 @@ var contactModule = angular.module('contactManagement', []);
  * @class Services.ContactService
  * This is a api-service, intended to call API used by Contact modules of application.
  */
+
 contactModule.factory("contactService", ['Restangular', '$q', function(Restangular, $q) {
     var service = {};
 
