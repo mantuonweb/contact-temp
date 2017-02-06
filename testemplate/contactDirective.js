@@ -532,7 +532,9 @@ contactModule.factory("contactService", ['Restangular', '$q', function(Restangul
 
     return service;
 }]);
-contactModule.controller('contactSearchController', ['$scope', '$state', 'myAccountService', 'contactService', 'utils', 'loginService', '$ionicScrollDelegate', 'appConstants', '$ionicModal', function($scope, $state, myAccountService, contactService, utils, loginService, $ionicScrollDelegate, appConstants, $ionicModal) {
+
+//change by mantu.
+contactDirective.controller('contactSearchController', ['$scope', '$state', 'myAccountService', 'contactService', 'utils', 'loginService', '$ionicScrollDelegate', 'appConstants', '$ionicModal', function($scope, $state, myAccountService, contactService, utils, loginService, $ionicScrollDelegate, appConstants, $ionicModal) {
     $scope.contacts = [];
     $scope.contactSearchData = {};
     init();
