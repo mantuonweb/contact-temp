@@ -1,4 +1,4 @@
-
+//test
 var contactDirective = angular.module('contactManagement', []);
 contactDirective.controller('contactSearchController', ['$scope', '$state', 'myAccountService', 'contactService', 'utils', 'loginService', '$ionicScrollDelegate', 'appConstants', '$ionicModal', function($scope, $state, myAccountService, contactService, utils, loginService, $ionicScrollDelegate, appConstants, $ionicModal) {
     $scope.contacts = [];
