@@ -1,38 +1,4 @@
-var contactManagement = "";
-contactManagement += "";
-contactManagement += "<ion-view title=\"Contact\">";
-contactManagement += "<ion-nav-bar class=\"bar nav-title-slide-ios7\">";
-contactManagement += "<ion-nav-back-button class=\"button icon ion-arrow-left-c\"><\/ion-nav-back-button>";
-contactManagement += "<div class=\"action\">";
-contactManagement += "  <button menu-toggle=\"right\" class=\"button icon ion-navicon-round\"><\/button>";
-contactManagement += "<\/div>";
-contactManagement += "<\/ion-nav-bar>";
-contactManagement += "  <ion-content class=\"footer-closed\">";
-contactManagement += "    <div>";
-contactManagement += "     <!--  <section class=\"user-account\">";
-contactManagement += "        <div account-selection><\/div>";
-contactManagement += "      <\/section> -->";
-contactManagement += "      <div class=\"signin-page\">";
-contactManagement += "        <wol-contact-save-form form-data=\"contactData\">";
-contactManagement += "        <\/wol-contact-save-form>";
-contactManagement += "      <\/div>";
-contactManagement += "     ";
-contactManagement += "      <ul class=\"item-accordian less-padding\" style=\"padding:20px !important\">";
-contactManagement += "        <wol-select-account add=\"addSelected('Account')\" list=\"accountTotal\" selectedlist=\"accountSelected\">";
-contactManagement += "        <\/wol-select-account>";
-contactManagement += "        <wol-select-contact-type add=\"addSelected('Contact type')\" list=\"contactTypeTotal\" selectedlist=\"contactTypeSelected\">";
-contactManagement += "        <\/wol-select-contact-type>";
-contactManagement += "      <\/ul>";
-contactManagement += "      ";
-contactManagement += "    <\/div>";
-contactManagement += "    <div class=\"signin-page\">";
-contactManagement += "      <button class=\"button button-block caps-on no-margin\" ng-click=\"gotoSearch();\">Save contact<\/button>";
-contactManagement += "    <\/div>";
-contactManagement += "  <\/ion-content>";
-contactManagement += "<\/ion-view>";
-var wolTemplates = {
-    'contactManagement': contactManagement
-};
+
 var contactDirective = angular.module('contactManagement', []);
 contactDirective.controller('contactSearchController', ['$scope', '$state', 'myAccountService', 'contactService', 'utils', 'loginService', '$ionicScrollDelegate', 'appConstants', '$ionicModal', function($scope, $state, myAccountService, contactService, utils, loginService, $ionicScrollDelegate, appConstants, $ionicModal) {
     $scope.contacts = [];
